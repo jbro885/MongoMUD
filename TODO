@@ -1,0 +1,22 @@
+ Aliases ( s=south, e=east etc important for compact
+locations) // 2hrs
+
+              Emotions ( currently we have emote but I want laugh,
+tickle X, slap X etc) // 2 hrs
+
+              Objects - including movable ones ( get, drop, give,
+examine, Inventory) // 8 hrs?
+
+              Custom Object Actions - (There are some fun options here
+including JS in the DB) // 8 hrs
+
+              Other communications modes - (Tell, Shout) // 2 hrs
+
+    We need  to get started on a conversion algorithm and code to get
+chunks of street map converted. // Many hrs
+
+    We need to get started on writing robot players - to add to the
+game and to test it.
+       - for this I should add a semi hidden command that lists all
+actions available // 1 hr
+

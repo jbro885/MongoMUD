@@ -1,0 +1,69 @@
+body {
+    padding-top: 50px;
+}
+.mdbMUD {
+    padding: 40px 15px;
+    #text-align: center;
+}
+
+.message-window {
+    height: 400px;
+}
+
+.message-list
+{
+    list-style-type: none;
+}
+
+.fixed-panel {
+    height:368px;
+    overflow-y:scroll;
+    padding:0px;
+
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin .checkbox {
+    font-weight: normal;
+}
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+
+}
+
+.form-signin input {
+    margin-bottom: 10px;
+}
+
+.login-links {
+    margin-top: 6px;
+    float: right;
+    list-style-type: none;
+}
+
+.login-links > li {
+    float: right;
+    margin-top: 10px;
+}
+
+.loginError {
+    color: red;
+    margin-top: 5px;
+}

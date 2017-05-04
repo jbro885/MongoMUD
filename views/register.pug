@@ -1,0 +1,34 @@
+doctype
+html
+    head
+        title MongoDb MUD - Register
+        link(rel="stylesheet", href="/css/bootstrap/3.3.6/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/css/mdbMUD.css")
+        meta(name="viewport", content="width=device-width, initial-scale=1, user-scalable=0")
+    body
+        .container
+            form.form-signin(action="/signup", method="POST")
+                h2.form-signin-heading Register
+                label.sr-only(for="username") Username
+                input.form-control(type="text",
+                                   id="username",
+                                   name="username",
+                                   placeholder="Username"
+                                   pattern="[a-zA-Z0-9]+"
+                                   oninvalid="this.setCustomValidity(this.willValidate?'':this.setCustomValidity('Username should contain alphanumeric characters only')"
+                                   required )
+                label.sr-only(for="password") Password
+                input.form-control(type="password", id="password", name="password", placeholder="Password" required)
+
+                label.sr-only(for="email") Email
+                input.form-control(type="email", id="email", name="email", placeholder="Email" required)
+
+                label.sr-only(for="firstName") First Name
+                input.form-control(type="text", id="firstName", name="firstName", placeholder="First Name" required)
+
+                label.sr-only(for="lastName") LastName
+                input.form-control(type="text", id="lastName", name="lastName", placeholder="Last Name" required)
+
+                button.btn.btn-lg.btn-primary.btn-block(type="submit") Register
+
+                p.loginError= error

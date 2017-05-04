@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link rel="stylesheet" href="css/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mdbMUD.css">
+    <script src="js/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="js/ajax/libs/angularjs/1.4.8/angular-resource.min.js"></script>
+    <script src="js/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular-scroll-glue/scrollglue.js"></script>
+    <script src="js/message.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <title>MongoDB World 2016 - MUD</title>
+</head>
+
+<body ng-app="mdbMUD" ng-controller="messageCtrl">
+    <div class="container">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-brand navbar-right">
+                    <a href="/signout">Log Out</a>
+                </div>
+            </div>
+        </nav>
+        <div class="messages" scroll-glue>
+            <ul class="message-list">
+                <li ng-repeat="msg in messages">
+                    <div>
+                        {{msg.content}}
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-8 col-sm-9">
+                    <input ng-enter="send()" type="text" ng-model="message.content" class="form-control" placeholder="Type an action here..." rows="3"/>
+                </div>
+                <div class="col-xs-4 col-sm-3">
+                    <button ng-click="send()" type="button" class="btn btn-primary btn-block">Send</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

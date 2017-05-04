@@ -1,0 +1,24 @@
+doctype
+html
+    head
+        title MongoDB MUD - Login
+        link(rel="stylesheet", href="/css/bootstrap/3.3.6/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/css/mdbMUD.css")
+        meta(name="viewport", content="width=device-width, initial-scale=1, user-scalable=0")
+    body
+        .container
+            form.form-signin(action="/login", method="POST")
+                h2.form-signin-heading Please sign in
+                label.sr-only(for="username") Username
+                input.form-control(type="text", id="username", name="username", placeholder="Username" required autofocus)
+                label.sr-only(for="password") Password
+                input.form-control(type="password", id="password", name="password", placeholder="Password" required)
+                button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign in
+                ul.login-links
+                    li
+                        a(href="/register") Not a member? Sign up here
+                    li
+                        a(href="/resetPassword.html") Reset Password
+                p.loginError= error
+
+
