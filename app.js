@@ -10,24 +10,27 @@ var winston = require('winston');
 var commandLineArgs = require('command-line-args');
 var cluster = require('cluster');
 
+
 winston.remove(winston.transports.Console);
 winston.add(winston.transports.Console, { timestamp: function() {return new Date();}, 'formatter': customLogFormatter});
 
-var options = commandLineArgs([
+var optionList = [
   { name: 'help', type: Boolean, description: 'Dispay this message'},
   { name: 'debug', type: Boolean, description: 'Run the server in debug mode.  This will disable multiple processes from being spawned.'},
-  { name: 'dbServer', type: String, defaultValue: 'localhost', group: ['database'], description: 'The database server to connect to. Default: localhost' },
-  { name: 'dbPort', type: String, defaultValue: '27017', group: ['database'], description: 'The database port to connect to. Default: 27017' },
-  { name: 'dbName', type: String, defaultValue: 'mud', group: ['database'], description: 'The name of the database to use. Default: mud' },
+  { name: 'dbURI', type: String, defaultValue: 'mongodb://localhost', group: ['database'], description: 'The database server URI to connect to. Default: mongodb://localhost' },
   { name: 'port', type: Number, defaultValue: 3000, group: ['server'], description: 'The port on which to listen for requests. Default: 3000' },
-  { name: 'mode', type: String, defaultValue: 'http', group: ['server'], description: 'The mode of the server.  Valid options are \'http\' and \'socket\'. Default: http' }
-])
+  ]
+
+var options = commandLineArgs(optionList)
 
 
 
 if (options._all.help) {
-  var usage = cli.getUsage();
-  console.log(usage);
+  var numOpts = optionList.length;
+  console.log("usage: node app.js <options>")
+  for(o=0;o<numOpts;o++) {
+  console.log("\t--"+optionList[o].name+"\t"+optionList[o].description);
+  }
   process.exit();
 }
 
@@ -57,7 +60,7 @@ if (cluster.isMaster && !options._all.debug) {
   });
 }
 else {
-  var mongoUrl = 'mongodb://' + options.database.dbServer + ':' + options.database.dbPort + '/' + options.database.dbName;
+  var mongoUrl = options.database.dbURI;
   MongoClient.connect(mongoUrl, function (err, db) {
 
     if (err) {

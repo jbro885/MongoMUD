@@ -12,7 +12,7 @@ module.exports.SEQUENCE_COLLECTION_NAME = 'sequences';
 module.exports.START_ROOM = "/town/square/fountain";
 //Things that can pop up randomly
 //[probability,objects]
-module.exports.RANDOM_OBJECTS = [[0.05,"a_cola_can"],[0.05,"gold coin"]]
+module.exports.RANDOM_OBJECTS = [[0.05,"gold_coin"]]
 
 String.prototype.title = function() {
     return this.replace(/\w\S*/g, function(txt) {

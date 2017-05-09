@@ -4,6 +4,8 @@ var winston = require('winston');
 //var awsutils = require('../utils/aws-helper.js');
 const sendmail = require('sendmail')();
 
+var config = require('../game/config.js')
+
 module.exports = function(passport, collection, apiKeys){
     
 	passport.use('signup', new LocalStrategy({
@@ -13,7 +15,7 @@ module.exports = function(passport, collection, apiKeys){
 
             findOrCreateUser = function(){
                 // find a user in Mongo with provided username
-                collection.findOne({$or: [{username: username},{email: req.param('email')}]}, function(err, user) {
+                collection.findOne({$or: [{username: username},{email: req.params.email}]}, function(err, user) {
                     // In case of any error, return using the done method
                     if (err){
                         console.log('Error in SignUp: '+err);
@@ -42,7 +44,7 @@ module.exports = function(passport, collection, apiKeys){
                         newUser.firstName = req.param('firstName');
                         newUser.lastName = req.param('lastName');
                         newUser.active = false;
-                        newUser.location = "startroom";
+                        newUser.location = config.START_ROOM;
                         newUser.moves=0;
 
                         if (req.param('apiKey')) {
